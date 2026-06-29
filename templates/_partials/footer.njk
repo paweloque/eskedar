@@ -1,0 +1,45 @@
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="/" class="nav-logo" aria-label="{{ site.site_name }} home">
+          <span class="nav-logo-text">{{ site.site_name }}</span>
+        </a>
+        <p class="footer-brand-name">{{ site.footer.brand.name }}</p>
+        <p class="footer-brand-date">{{ site.footer.brand.date }}</p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">{{ site.footer.navigate.heading }}</p>
+        <ul class="footer-nav" role="list">
+          {% for link in site.footer.navigate.links %}
+          <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-heading">{{ site.footer.community.heading }}</p>
+        <p class="footer-text">{{ site.footer.community.text }}</p>
+        {% if site.social.linkedin and site.footer.community.linkedin_label %}
+        <p class="footer-social-link">
+          <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener noreferrer">{{ site.footer.community.linkedin_label }} &rarr;</a>
+        </p>
+        {% endif %}
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ site.footer.copyright }}</p>
+      <nav class="footer-legal" aria-label="Legal">
+        {% for link in site.footer.legal_links %}
+        <a href="{{ link.url }}">{{ link.label }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+
+  </div>
+</footer>

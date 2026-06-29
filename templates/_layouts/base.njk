@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang or 'en' }}">
+<head>
+  {%- set pageTitle = pages[pageKey].meta.title if (pageKey and pages[pageKey] and pages[pageKey].meta and pages[pageKey].meta.title) -%}
+  {%- set pageDesc = pages[pageKey].meta.description if (pageKey and pages[pageKey] and pages[pageKey].meta and pages[pageKey].meta.description) -%}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.url == "/404.html" %}Page not found - {{ site.site_name }}{% else %}{{ pageTitle or site.site_name }}{% endif %}</title>
+  <meta name="description" content="{{ pageDesc or site.meta.description }}">
+
+  {%- if page.url !== "/404.html" %}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {%- endif %}
+  {%- if page.url == "/404.html" or (pageKey and pages[pageKey] and pages[pageKey].hidden) %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+
+  {# Open Graph #}
+  <meta property="og:title" content="{{ pageTitle or site.site_name }}">
+  <meta property="og:description" content="{{ pageDesc or site.meta.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% if site.meta.og_image %}
+  <meta property="og:image" content="{{ site.url }}/{{ site.meta.og_image }}">
+  {% endif %}
+
+  {# Twitter Card #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle or site.site_name }}">
+  <meta name="twitter:description" content="{{ pageDesc or site.meta.description }}">
+  {% if site.meta.og_image %}
+  <meta name="twitter:image" content="{{ site.url }}/{{ site.meta.og_image }}">
+  {% endif %}
+
+  {# Favicon — placeholder icons; replace with Eskedar branding in Phase 3 #}
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  {# Organization JSON-LD — all pages. Richer structured data (LocalBusiness,
+     product/offer) is added during the SEO pass in Phase 4. #}
+  {%- set socialUrls = [] %}
+  {%- for key, url in site.social %}{% if url %}{% set _ = socialUrls.push(url) %}{% endif %}{% endfor %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.site_name | safe }}",
+    "url": "{{ site.url | safe }}"{% if socialUrls.length %},
+    "sameAs": {{ socialUrls | dump | safe }}{% endif %}
+  }
+  </script>
+
+  <script>
+  (function () {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  {% include "nav.njk" %}
+  <main id="main">
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

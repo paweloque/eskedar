@@ -1,0 +1,92 @@
+<nav aria-label="Main navigation">
+  <div class="container nav-inner">
+
+    <a href="/" class="nav-logo" aria-label="{{ site.site_name }} home">
+      <span class="nav-logo-text">{{ site.site_name }}</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      {% for item in site.nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url %} class="is-active" aria-current="page"{% endif %}>{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+
+    <div class="nav-right">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="5"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+      </button>
+      {% if site.cta %}<a href="{{ site.cta.url }}" class="btn-primary nav-cta">{{ site.cta.label }}</a>{% endif %}
+      <button class="nav-burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul role="list">
+      {% for item in site.nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url %} class="is-active"{% endif %}>{{ item.label }}</a></li>
+      {% endfor %}
+      {% if site.cta %}<li><a href="{{ site.cta.url }}" class="btn-primary mobile-cta">{{ site.cta.label }}</a></li>{% endif %}
+    </ul>
+  </div>
+</nav>
+
+<script>
+(function () {
+  var burger = document.querySelector('.nav-burger');
+  var menu = document.getElementById('mobile-menu');
+  if (!burger || !menu) return;
+
+  burger.addEventListener('click', function () {
+    var open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    menu.setAttribute('aria-hidden', String(open));
+    burger.classList.toggle('is-open', !open);
+    menu.classList.toggle('is-open', !open);
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      burger.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+      burger.classList.remove('is-open');
+      menu.classList.remove('is-open');
+    });
+  });
+})();
+
+(function () {
+  var toggle = document.querySelector('.theme-toggle');
+  if (!toggle) return;
+
+  function getEffectiveTheme() {
+    var stored = document.documentElement.getAttribute('data-theme');
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function updateLabel(theme) {
+    toggle.setAttribute('aria-label',
+      theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  updateLabel(getEffectiveTheme());
+
+  toggle.addEventListener('click', function () {
+    var next = getEffectiveTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateLabel(next);
+  });
+})();
+</script>

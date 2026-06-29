@@ -1,0 +1,37 @@
+# Global site configuration for Eskedar Ethiopian Coffee.
+# Edit this file to change the brand name, navigation, footer, and social links.
+
+site_name: "Eskedar Ethiopian Coffee"
+lang: "en"
+url: "https://eskedarcoffee.ch"
+
+meta:
+  description: "Premium Arabica green coffee from Ethiopia — direct trade, single origin, traceable."
+
+# Main navigation links. Empty for now — real pages are added in Phase 2.
+nav: []
+
+# Header call-to-action button. Omitted for now; add when the contact page exists, e.g.:
+#   cta:
+#     label: "Request a sample"
+#     url: "/contact/"
+
+# Social profile URLs (leave blank to hide).
+social:
+  linkedin: ""
+  instagram: ""
+
+footer:
+  copyright: "2026 Eskedar Ethiopian Coffee. All rights reserved."
+  brand:
+    name: "Eskedar Ethiopian Coffee"
+    date: "Bern, Switzerland"
+  navigate:
+    heading: "Navigate"
+    links:
+      - label: "Home"
+        url: "/"
+  community:
+    heading: "Contact"
+    text: "Premium Arabica green coffee from Ethiopia."
+  legal_links: []

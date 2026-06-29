@@ -1,0 +1,19 @@
+---
+layout: "base.njk"
+pageKey: "index"
+---
+
+{# Empty starter homepage. Phase 2 replaces this with the real sections
+   (hero, our story, our coffees, quality, tree-to-roaster, gallery, contact).
+   Reuses the existing hero CSS so the shell looks styled. #}
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-title">{{ pages.index.hero.headline }}</h1>
+        <p class="hero-tagline">{{ pages.index.hero.tagline }}</p>
+        <p class="hero-desc">{{ pages.index.hero.note }}</p>
+      </div>
+    </div>
+  </div>
+</section>

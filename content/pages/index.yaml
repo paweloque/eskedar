@@ -1,0 +1,12 @@
+# Homepage content for Eskedar Ethiopian Coffee.
+# This is an intentionally empty starting point. Phase 2 replaces it with the
+# real sections: hero, our story, our coffees, quality, tree-to-roaster, gallery, contact.
+
+meta:
+  title: "Eskedar Ethiopian Coffee"
+  description: "Premium Arabica green coffee from Ethiopia — direct trade, single origin, traceable."
+
+hero:
+  headline: "Eskedar Ethiopian Coffee"
+  tagline: "Premium Arabica green coffee from Ethiopia."
+  note: "Website coming soon."

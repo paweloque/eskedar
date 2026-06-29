@@ -1,0 +1,48 @@
+
+Intro
+
+Eskedar hat mir ein foto einer provisorischen seite geschickt. mit dieser seite möchte sie 
+beginnen äthiopischen kaffee zu verkaufen. die idee ist, dass ganz oben die titelseite ist, 
+und dann die daraufffolgenden seiten sichtbar werden wenn man nach unten swiped. die 
+einzelnen seiten sind bereits im bild dargestellt, es sind die im raster dargestellten 
+einzelnen bilder (weisser rand). ausserdem sollte man auf einige icons drücken sollen wie 
+zb kontakt...
+die seite soll auch in verschiedenen sprachen und auf dem mobiltelefon verfürgbar sein.
+
+
+Aufgabe Yaël:
+
+She interviews the coffee lady and writes one page: who the visitors are, which coffees, 
+what photos already exist, what should happen when someone clicks "Request a sample," which 
+languages, and what web address she wants.
+
+Webseite-Struktur:
+
+Header:
+
+hier sieht man ein titelbild, welches dann änderbar sein sollte. 
+dann steht in titelschrift : "Eskedar" darunter " ethiopian coffee" dann gibts eine 
+beschreibung also premium arabica green coffee from ethiopia und dann die dienstleistungen.
+zuunterst sind zwei icons, das eine um ein sample zu bestellen und durch das zweite
+kann man eskedar kontaktieren.
+
+Section 1 - Our Story
+
+frage: was passiert wenn man auf learn more tippt, gibts dann eine unterseite mit 
+mehr informationen, wenn ja welche?
+
+auf dieser seite soll ein bild sein und auf der rechten hälfte ein text. der titel 
+ist our story. zuunterst gibts einen button. mit "learn more" dieser soll eine 
+unterseite mit weiteren informationen öffnen.
+
+Section 2 - Our coffees
+
+Eskedar, sind das schon die Kaffeesorten, die du verkaufen willst, oder sind es einfach Beispiele?
+
+Section 3 - Quality first
+
+Section 4 - 
+
+Section 5 - 
+
+Section 6 - 
