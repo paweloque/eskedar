@@ -2,7 +2,7 @@
 id: TASK-001
 title: Apply the Eskedar brand colors
 type: style
-status: ready
+status: done
 priority: high
 depends_on: []
 ---
